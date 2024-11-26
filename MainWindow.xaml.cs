@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfHobbyList.ViewModels;
 
 namespace WpfHobbyList
 {
@@ -16,9 +17,25 @@ namespace WpfHobbyList
     /// </summary>
     public partial class MainWindow : Window
     {
+        private HobbyViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = new HobbyViewModel();
+            DataContext = viewModel;
+            Loaded += HobbiesView_Loaded;
+        }
+
+        private async void HobbiesView_Loaded(object sender, RoutedEventArgs e)
+        {
+            await viewModel.LoadAsync();
+        }
+
+        private void AddHobby(object sender, RoutedEventArgs e)
+        {
+            btnAddHobby.Content = "Hobby tillagd";
+            btnAddHobby.IsEnabled = false;
         }
     }
 }

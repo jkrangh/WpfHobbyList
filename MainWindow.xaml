@@ -6,7 +6,32 @@
         xmlns:local="clr-namespace:WpfHobbyList"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid x:Name="HobbiesGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnAddHobby"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="10"
+                Padding="5"
+                Click="AddHobby">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="50" Source="/Images/plus.png" />
+                <TextBlock VerticalAlignment="Center">Lägg till en hobby</TextBlock>
+            </StackPanel>
+        </Button>
+        <ListView Grid.Row="1" ItemsSource="{Binding Hobbies}"
+                  DisplayMemberPath="Description"
+                  SelectedItem="{Binding SelectedHobby}"></ListView>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox Text="{Binding SelectedHobby.Description, Mode=TwoWay}"/>
+            <CheckBox IsChecked="{Binding SelectedHobby.Active, Mode=TwoWay}"/>
+        </StackPanel>
     </Grid>
 </Window>
