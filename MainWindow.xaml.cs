@@ -32,10 +32,5 @@ namespace WpfHobbyList
         {
             await viewModel.LoadAsync();
         }
-
-        private void AddHobby(object sender, RoutedEventArgs e)
-        {
-            viewModel.AddStudent();
-        }
     }
 }
