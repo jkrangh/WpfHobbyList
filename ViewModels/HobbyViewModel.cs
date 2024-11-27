@@ -8,22 +8,24 @@ using WpfHobbyList.Models;
 
 namespace WpfHobbyList.ViewModels
 {
-    public class HobbyViewModel
+    public class HobbyViewModel : ViewModelBase
     {
 		private ObservableCollection<Hobby> hobbies=new();
-
+        private Hobby selectedHobby;
 		public ObservableCollection<Hobby> Hobbies
 		{
 			get { return hobbies; }
-			set { hobbies = value; }
+			set { hobbies = value;
+                RaisePropertyChanged();
+            }
 		}
         
-        private Hobby selectedHobby;
-
         public Hobby SelectedHobby
         {
             get { return selectedHobby; }
-            set { selectedHobby = value; }
+            set { selectedHobby = value;
+                RaisePropertyChanged();
+            }
         }
 
         public HobbyViewModel()
@@ -32,7 +34,7 @@ namespace WpfHobbyList.ViewModels
             hobbies.Add(new Hobby() { Description = "Dricka sand", Active = true });
             hobbies.Add(new Hobby() { Description = "Spela i arabiska heavy metal-band", Active = false });
         }
-
+              
         public async Task LoadAsync()
         {
             if (Hobbies.Any())

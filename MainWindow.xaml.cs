@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfHobbyList.Models;
 using WpfHobbyList.ViewModels;
 
 namespace WpfHobbyList
@@ -34,8 +35,9 @@ namespace WpfHobbyList
 
         private void AddHobby(object sender, RoutedEventArgs e)
         {
-            btnAddHobby.Content = "Hobby tillagd";
-            btnAddHobby.IsEnabled = false;
+            Hobby hobby = new Hobby() { Description = "Ny hobby" };
+            viewModel.Hobbies.Add(hobby);
+            viewModel.SelectedHobby = hobby;
         }
     }
 }
