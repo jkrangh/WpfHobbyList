@@ -42,5 +42,12 @@ namespace WpfHobbyList.ViewModels
                 return;
             }         
         }
+
+        public void AddStudent()
+        {
+            Hobby hobby = new Hobby() { Description = "Ny hobby" };
+            Hobbies.Add(hobby);
+            SelectedHobby = hobby;
+        }
     }
 }

@@ -35,9 +35,7 @@ namespace WpfHobbyList
 
         private void AddHobby(object sender, RoutedEventArgs e)
         {
-            Hobby hobby = new Hobby() { Description = "Ny hobby" };
-            viewModel.Hobbies.Add(hobby);
-            viewModel.SelectedHobby = hobby;
+            viewModel.AddStudent();
         }
     }
 }
