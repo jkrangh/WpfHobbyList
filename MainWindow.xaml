@@ -24,6 +24,7 @@
                 <TextBox Text="{Binding SelectedHobby.Description, Mode=TwoWay}"/>
                 <CheckBox IsChecked="{Binding SelectedHobby.Active, Mode=TwoWay}"/>
             </StackPanel>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button x:Name="btnAddHobby"
