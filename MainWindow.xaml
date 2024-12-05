@@ -5,46 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHobbyList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Wpf Hobby List" Height="450" Width="800">
     <Grid x:Name="HobbiesGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-        <Button x:Name="btnAddHobby"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="10"
-                Padding="5"
-                Command="{Binding AddCommand}" >
-            <StackPanel Orientation="Horizontal">
-                <Image Height="50" Source="/Images/plus.png" Margin="0,0,5,0"  />
-                <TextBlock VerticalAlignment="Center">Lägg till en hobby</TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView ItemsSource="{Binding Hobbies}"
+          DisplayMemberPath="Description"
+          SelectedItem="{Binding SelectedHobby}"></ListView>
+            <StackPanel Grid.Column="2">
+                <TextBox Text="{Binding SelectedHobby.Description, Mode=TwoWay}"/>
+                <CheckBox IsChecked="{Binding SelectedHobby.Active, Mode=TwoWay}"/>
             </StackPanel>
-        </Button>
-            <Button x:Name="btnDeleteHobby"
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+        </Grid>
+        <ScrollViewer Grid.Row="1"
+            HorizontalScrollBarVisibility="Auto" 
+            VerticalScrollBarVisibility="Auto">
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Button x:Name="btnAddHobby"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="10"
+                    Padding="5"
+                    Command="{Binding AddCommand}" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="50" Source="/Images/plus.png" Margin="0,0,5,0"  />
+                        <TextBlock VerticalAlignment="Center">Lägg till hobby</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDeleteHobby"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Margin="10"
                     Padding="5"
                     Command="{Binding DeleteCommand}">
-                <StackPanel Orientation="Horizontal">
-                    <Image Height="50" Source="/Images/cross.png" Margin="0,0,5,0"  />
-                    <TextBlock VerticalAlignment="Center">Ta bort vald hobby</TextBlock>
-                </StackPanel>
-            </Button>
-        </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding Hobbies}"
-                  DisplayMemberPath="Description"
-                  SelectedItem="{Binding SelectedHobby}"></ListView>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox Text="{Binding SelectedHobby.Description, Mode=TwoWay}"/>
-            <CheckBox IsChecked="{Binding SelectedHobby.Active, Mode=TwoWay}"/>
-        </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="50" Source="/Images/cross.png" Margin="0,0,5,0"  />
+                        <TextBlock VerticalAlignment="Center">Ta bort vald hobby</TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
