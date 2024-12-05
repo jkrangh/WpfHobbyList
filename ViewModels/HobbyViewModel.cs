@@ -34,9 +34,9 @@ namespace WpfHobbyList.ViewModels
 
         public HobbyViewModel()
         {
-            hobbies.Add(new Hobby() { Description="Äta olja", Active=true});
-            hobbies.Add(new Hobby() { Description = "Dricka sand", Active = true });
-            hobbies.Add(new Hobby() { Description = "Spela i arabiska heavy metal-band", Active = false });
+            hobbies.Add(new Hobby() { Description="Städa", Active=true});
+            hobbies.Add(new Hobby() { Description = "Diska", Active = true });
+            hobbies.Add(new Hobby() { Description = "Spela bridge", Active = false });
 
             AddCommand = new DelegateCommand(AddHobby);
             DeleteCommand = new DelegateCommand(DeleteHobby, CanDelete);

@@ -13,9 +13,6 @@ using WpfHobbyList.ViewModels;
 
 namespace WpfHobbyList
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private HobbyViewModel viewModel;

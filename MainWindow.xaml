@@ -14,19 +14,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-        <Button x:Name="btnAddHobby"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Margin="10"
-                Padding="5"
-                Command="{Binding AddCommand}" >
-            <StackPanel Orientation="Horizontal">
-                <Image Height="50" Source="/Images/plus.png" Margin="0,0,5,0"  />
-                <TextBlock VerticalAlignment="Center">Lägg till en hobby</TextBlock>
-            </StackPanel>
-        </Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="btnAddHobby"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="10"
+                    Padding="5"
+                    Command="{Binding AddCommand}" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="50" Source="/Images/plus.png" Margin="0,0,5,0"  />
+                    <TextBlock VerticalAlignment="Center">Lägg till hobby</TextBlock>
+                </StackPanel>
+            </Button>
             <Button x:Name="btnDeleteHobby"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
